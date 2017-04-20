@@ -7,9 +7,9 @@
 CRGB leds[NUM_STRIPS * NUM_LEDS_PER_STRIP];
 
 // strip pins
-const int stripBas = 7;
-const int stripMilieu = 2;
-const int stripHaut = 8;
+const int stripBas = 7; // vert
+const int stripMilieu = 2; // jaune
+const int stripHaut = 8; // marron
 
 // microphone pin
 int micPin = A3;
