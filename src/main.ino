@@ -25,25 +25,15 @@ void setup() {
 	FastLED.addLeds<NEOPIXEL, stripMilieu>(leds, NUM_LEDS_PER_STRIP, NUM_LEDS_PER_STRIP);
 	// strip du haut, indice 480 à 719
 	FastLED.addLeds<NEOPIXEL, stripHaut>(leds, 2 * NUM_LEDS_PER_STRIP, NUM_LEDS_PER_STRIP);
-	FastLED.setBrightness(255);
+	// toutes les leds en bleu
+	for (int j = 0; j < NUM_LEDS; j++) {
+		leds[j] = CRGB(21, 68, 138);
+	}
 }
 
 void loop() {
-	micValue = analogRead(micPin);
-	Serial.println(micValue);
-	static uint8_t hue = 0;
-	for (int j = 0; j < NUM_LEDS; j++) {
-		leds[j] = CHSV(hue + j, 192, 255);
-	}
-	hue++;
+	micValue = constrain(analogRead(micPin) * 4, 0, 255);
+	FastLED.setBrightness(micValue);
 	FastLED.show();
 	FastLED.delay(10);
 }
-// void loop() {
-// 	for(int i = 0; i < NUM_LEDS; i++) {
-// 		leds[i] = CRGB::Red;
-// 		FastLED.show();
-// 		leds[i] = CRGB::Black;
-// 		delay(1);
-// 	}
-// }
