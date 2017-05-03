@@ -8,11 +8,11 @@ CRGB leds[NUM_STRIPS * NUM_LEDS_PER_STRIP];
 
 // strip pins
 const int stripBas = 7; // vert
-const int stripMilieu = 2; // jaune
-const int stripHaut = 8; // marron
+const int stripMilieu = 8; // marron
+const int stripHaut = 2; // jaune
 
 // microphone pin
-int micPin = A3;
+int micPin = A4; // identified by the number 18 on octows extension board
 
 // microphone value (0 à 250 environ)
 int micValue = 0;
